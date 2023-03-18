@@ -45,7 +45,7 @@ public class SearchFilterOnNovostroykiPageTest extends TestBase {
     @CsvSource(value = {"Дмитров,   Студия, Студии",
             "Одинцово, 2,       1-комн."})
     @ParameterizedTest(name = "Результат поиска по г. {0} и комнатности {2} должнен содержать новостройки из г. {0} с типом квартир {2}")
-    void resultSearchCityAndSelectRoomCheckbox(String data1, String data2, String data3) {
+    void resultSearchCityAndSelectRoomShouldContainsZhkFromSuchCityAndWithSuchTypeFlats(String data1, String data2, String data3) {
         novostroykiPage.setValueToGeoSearchInput(data1)
                 .clickGeoOptionInSelectDropdown()
                 .selectRoomsInFilter(data2)
