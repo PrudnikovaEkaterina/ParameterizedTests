@@ -34,7 +34,7 @@ public class NovostroykiPage {
         return this;
     }
 
-    public NovostroykiPage filterRoomsCheckbox(String room) {
+    public NovostroykiPage selectRoomsInFilter(String room) {
         FILTER_ROOMS_CHECKBOX.find(Condition.text(room)).click();
         return this;
     }
@@ -50,7 +50,7 @@ public class NovostroykiPage {
     }
 
 
-    public void verifyResultChooseRoomCheckbox(String room) {
+    public void verifyResultSelectRoom(String room) {
         SEARCH_ITEM_PRICE_INFO.asDynamicIterable().forEach(el -> el.shouldHave(Condition.text(room)));
     }
 }

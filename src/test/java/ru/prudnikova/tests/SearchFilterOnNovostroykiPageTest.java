@@ -45,12 +45,12 @@ public class SearchFilterOnNovostroykiPageTest extends TestBase {
     @CsvSource(value = {"Дмитров,   Студия, Студии",
             "Одинцово, 2,       1-комн."})
     @ParameterizedTest(name = "Результат поиска по г. {0} и комнатности {2} должнен содержать новостройки из г. {0} с типом квартир {2}")
-    void test(String data1, String data2, String data3) {
+    void resultSearchCityAndSelectRoomCheckbox(String data1, String data2, String data3) {
         novostroykiPage.setValueToGeoSearchInput(data1)
                 .clickGeoOptionInSelectDropdown()
-                .filterRoomsCheckbox(data2)
+                .selectRoomsInFilter(data2)
                 .verifyResultGeoSearchCity(data1)
-                .verifyResultChooseRoomCheckbox(data3);
+                .verifyResultSelectRoom(data3);
     }
 
 }
