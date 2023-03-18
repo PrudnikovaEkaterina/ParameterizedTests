@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.prudnikova'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava {
+        options.encoding = 'UTF-8'
+    }
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'com.codeborne:selenide:6.12.3'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+
+}
+
+test {
+    useJUnitPlatform()
+}
