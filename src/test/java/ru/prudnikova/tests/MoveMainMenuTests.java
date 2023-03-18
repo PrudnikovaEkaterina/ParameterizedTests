@@ -23,7 +23,7 @@ public class MoveMainMenuTests {
     }
 
     @MethodSource
-    @ParameterizedTest(name = "При клике на пункт меню {0} оно содержит подменю {1}")
+    @ParameterizedTest(name = "При клике на пункт меню {0} появляется dropdown-menu: {1}")
     void verifyMenuContainsExpectSubMenuLinks(String menu, List<String> expectSubMenuLinks) {
         moveMainPage.openMoveMainPage()
                 .clickMainMenu(menu)
