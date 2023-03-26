@@ -15,7 +15,7 @@ public class AttachmentsTest {
     public void testLambdaAttachments() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем главную страницу", () -> {
+        step("Открываем главную страницуe", () -> {
             open("https://github.com");
             attachment("Source", webdriver().driver().source());
         });
