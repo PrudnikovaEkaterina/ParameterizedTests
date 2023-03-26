@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group 'ru.prudnikova'
@@ -7,6 +8,20 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+allure {
+    report {
+        version.set("2.21.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.21.0")
+            }
+        }
+    }
 }
 
 compileTestJava {
@@ -29,6 +44,9 @@ dependencies {
     testImplementation 'com.opencsv:opencsv:5.7.1'
     testImplementation 'org.apache.poi:poi-ooxml:5.2.3'
     testImplementation 'com.fasterxml.jackson.core:jackson-core:2.13.1'
+    implementation 'org.apache.poi:poi-scratchpad:3.0.1-FINAL'
+    implementation 'io.qameta.allure:allure-selenide:2.21.0'
+
 
 
 }

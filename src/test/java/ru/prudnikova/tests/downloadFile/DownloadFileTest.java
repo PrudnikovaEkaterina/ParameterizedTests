@@ -2,16 +2,20 @@ package ru.prudnikova.tests.downloadFile;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.selenide.DownloadOptions;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.xlstest.XLS;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.prudnikova.testData.BuildingData;
+import ru.prudnikova.tests.downloadFile.testData.BuildingData;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -44,6 +48,7 @@ public class DownloadFileTest {
     @DisplayName("Загрузка и чтение файла формата .docx")
 //    зависимость  implementation 'org.apache.poi:poi-ooxml:5.2.3'
     void downloadDocxFile() throws IOException {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://www.sravni.ru/text/zayavlenie-na-otpusk/");
         File downloads = $("p a[href*='b7m2l1pyqtshfg89kew3.docx'").download(DownloadOptions.using(FOLDER));
         System.out.println(downloads);
@@ -54,8 +59,8 @@ public class DownloadFileTest {
                 String text = p.getText();
                 System.out.println(text);
             }
-            Assertions.assertTrue(paragraphs.get(1).getRuns().get(0).getText(0).startsWith("Генеральному"));
-
+            Assertions.assertTrue(paragraphs.get(1).getRuns().get(0).getText(0).startsWith(" с "));
+            // Генеральному
         }
     }
 
@@ -66,8 +71,19 @@ public class DownloadFileTest {
         open("http://blanki-blanki.narod.ru/schet_faktura.html");
         File download = $("a[href*='faile/schet_faktura.doc']").download();
         System.out.println(download);
+//        try (InputStream is = cl.getResourceAsStream("schet_faktura (2).doc")) {
+//            assert is != null;
+//            byte[] bytes = is.readAllBytes();
+//            String fileAsString = new String(bytes, StandardCharsets.UTF_8);
+//            System.out.println(fileAsString);
+//        }
 //       Прочитать файл не смогла
+
+//        HWPFDocument document = new HWPFDocument(is);
+//        WordExtractor extractor = new WordExtractor(document);
+//        System.out.println(extractor.getParagraphText().toString());}
     }
+
 
     @Test
     @DisplayName("Загрузка и чтение файла формата .xls")
