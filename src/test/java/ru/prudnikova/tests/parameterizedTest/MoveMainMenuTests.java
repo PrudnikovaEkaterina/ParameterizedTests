@@ -1,4 +1,4 @@
-package ru.prudnikova.tests;
+package ru.prudnikova.tests.parameterizedTest;
 
 
 import org.junit.jupiter.params.ParameterizedTest;

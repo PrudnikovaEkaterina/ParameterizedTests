@@ -1,4 +1,4 @@
-package ru.prudnikova.tests;
+package ru.prudnikova.tests.parameterizedTest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
