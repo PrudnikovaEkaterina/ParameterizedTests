@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.prudnikova.tests.downloadFile.DownloadFileWithProxy" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-28T20:07:33" hostname="HOME" time="9.099">
+  <properties/>
+  <testcase name="Загрузка файла через прокси, потому что локатор кнопки Скачать не содержит href" classname="ru.prudnikova.tests.downloadFile.DownloadFileWithProxy" time="9.099"/>
+  <system-out><![CDATA[C:\Git\ParameterizedTests\build\downloads\32b81537-8c39-4764-af74-8047692c939e\blank-rezume-konstr.docx
+]]></system-out>
+  <system-err><![CDATA[ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath. Using SimpleLogger to log to the console...
+Starting ChromeDriver 111.0.5563.64 (c710e93d5b63b7095afe8c2c17df34408078439d-refs/branch-heads/5563@{#995}) on port 2293
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+мар. 28, 2023 11:07:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 111, so returning the closest version found: 110
+]]></system-err>
+</testsuite>

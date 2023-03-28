@@ -1,0 +1,1 @@
+{"uuid":"aab17001-420e-4664-bc4b-5a16f9ba1af8","name":"Поисковая выдача должна содержать искомый ЖК","children":["9250b745-18dc-43cf-a58f-20e883c344f0"],"befores":[{"name":"setup","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1680025743965,"stop":1680025750466}],"afters":[],"start":1680025743897,"stop":1680025752022}
