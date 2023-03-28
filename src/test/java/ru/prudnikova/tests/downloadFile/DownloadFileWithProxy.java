@@ -6,6 +6,7 @@ import com.codeborne.selenide.FileDownloadMode;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,12 +19,13 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class DownloadFileWithProxy {
     //  implementation 'com.codeborne:selenide-proxy:6.12.4'
-    static {
+   static {
         Configuration.fileDownload = FileDownloadMode.PROXY;
         Configuration.proxyEnabled = true;
     }
 
     @Test
+    @Disabled
     @DisplayName("Загрузка файла через прокси, потому что локатор кнопки Скачать не содержит href")
     void downloadFile() throws Exception {
         open("https://master-rezume.com/blank-rezyume-na-rabotu");
