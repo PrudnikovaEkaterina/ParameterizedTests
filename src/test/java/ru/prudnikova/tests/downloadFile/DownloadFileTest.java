@@ -40,7 +40,7 @@ public class DownloadFileTest {
         try (InputStream is = new FileInputStream(download)) {
             byte[] bytes = is.readAllBytes();
             String fileAsString = new String(bytes, StandardCharsets.UTF_8);
-            Assertions.assertTrue(fileAsString.contains("Технологии, использованные в Niffler"));
+            Assertions.assertTrue(fileAsString.contains("Технологии, использованные в Niffle"));
         }
     }
 
