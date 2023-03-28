@@ -3,6 +3,7 @@ package ru.prudnikova.tests.downloadFile;
 import com.codeborne.pdftest.PDF;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DownloadOptions;
+import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.xlstest.XLS;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,7 +48,8 @@ public class DownloadFileTest {
     @DisplayName("Загрузка и чтение файла формата .docx")
 //    зависимость  implementation 'org.apache.poi:poi-ooxml:5.2.3'
     void downloadDocxFile() throws IOException {
-        Configuration.downloadsFolder="/tmp";
+        Configuration.fileDownload = FileDownloadMode.FOLDER;
+        Configuration.proxyEnabled = false;
         SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://www.sravni.ru/text/zayavlenie-na-otpusk/");
         File downloads = $("p a[href*='b7m2l1pyqtshfg89kew3.docx'").download(DownloadOptions.using(FOLDER));
