@@ -8,14 +8,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.prudnikova.tests.downloadFile.testData.BuildingData;
+import testData.BuildingData;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -59,7 +57,7 @@ public class DownloadFileTest {
                 String text = p.getText();
                 System.out.println(text);
             }
-            Assertions.assertTrue(paragraphs.get(1).getRuns().get(0).getText(0).startsWith(" с "));
+            Assertions.assertTrue(paragraphs.get(1).getRuns().get(0).getText(0).startsWith("Генеральному"));
             // Генеральному
         }
     }

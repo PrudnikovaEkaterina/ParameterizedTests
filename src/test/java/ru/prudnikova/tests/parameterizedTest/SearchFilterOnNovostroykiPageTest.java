@@ -8,8 +8,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import ru.prudnikova.pages.NovostroykiPage;
-import ru.prudnikova.tests.downloadFile.testData.GenerationRandomTestData;
-import ru.prudnikova.tests.downloadFile.testData.TestData;
+import testData.GenerationRandomTestData;
+import testData.TestData;
 
 
 public class SearchFilterOnNovostroykiPageTest extends TestBase {
