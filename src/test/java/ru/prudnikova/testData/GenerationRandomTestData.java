@@ -1,4 +1,4 @@
-package testData;
+package ru.prudnikova.testData;
 
 import com.github.javafaker.Faker;
 

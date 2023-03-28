@@ -1,4 +1,4 @@
-package testData;
+package ru.prudnikova.testData;
 
 public class TestData {
     private String zhk;

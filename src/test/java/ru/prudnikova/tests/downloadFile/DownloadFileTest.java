@@ -1,7 +1,6 @@
 package ru.prudnikova.tests.downloadFile;
 
 import com.codeborne.pdftest.PDF;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DownloadOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.xlstest.XLS;
@@ -14,7 +13,7 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import testData.BuildingData;
+import ru.prudnikova.testData.BuildingData;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
