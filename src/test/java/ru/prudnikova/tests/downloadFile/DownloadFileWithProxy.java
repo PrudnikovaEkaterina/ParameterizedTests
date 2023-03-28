@@ -22,7 +22,6 @@ public class DownloadFileWithProxy {
    static {
         Configuration.fileDownload = FileDownloadMode.PROXY;
         Configuration.proxyEnabled = true;
-        Configuration.downloadsFolder="/download";
     }
 
     @Test
