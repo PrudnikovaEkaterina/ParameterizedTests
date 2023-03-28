@@ -22,10 +22,10 @@ public class DownloadFileWithProxy {
    static {
         Configuration.fileDownload = FileDownloadMode.PROXY;
         Configuration.proxyEnabled = true;
+        Configuration.downloadsFolder="/download";
     }
 
     @Test
-    @Disabled
     @DisplayName("Загрузка файла через прокси, потому что локатор кнопки Скачать не содержит href")
     void downloadFile() throws Exception {
         open("https://master-rezume.com/blank-rezyume-na-rabotu");

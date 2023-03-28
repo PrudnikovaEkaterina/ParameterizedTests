@@ -1,6 +1,7 @@
 package ru.prudnikova.tests.downloadFile;
 
 import com.codeborne.pdftest.PDF;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DownloadOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.xlstest.XLS;
@@ -33,6 +34,7 @@ public class DownloadFileTest {
     @Test
     @DisplayName("Загрузка и чтение файла формата .txt")
     void downloadTxtFile() throws IOException {
+        Configuration.downloadsFolder="/download";
         open("https://github.com/qa-guru/niffler/blob/master/README.md");
         File download = $("a[href*='/qa-guru/niffler/raw/master/README.md']").download();
         try (InputStream is = new FileInputStream(download)) {
@@ -46,6 +48,7 @@ public class DownloadFileTest {
     @DisplayName("Загрузка и чтение файла формата .docx")
 //    зависимость  implementation 'org.apache.poi:poi-ooxml:5.2.3'
     void downloadDocxFile() throws IOException {
+        Configuration.downloadsFolder="/download";
         SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://www.sravni.ru/text/zayavlenie-na-otpusk/");
         File downloads = $("p a[href*='b7m2l1pyqtshfg89kew3.docx'").download(DownloadOptions.using(FOLDER));
@@ -66,6 +69,7 @@ public class DownloadFileTest {
     @Test
     @DisplayName("Загрузка файла формата .doc")
     void downloadDocFile() throws IOException {
+        Configuration.downloadsFolder="/download";
         open("http://blanki-blanki.narod.ru/schet_faktura.html");
         File download = $("a[href*='faile/schet_faktura.doc']").download();
         System.out.println(download);
@@ -86,6 +90,7 @@ public class DownloadFileTest {
     @Test
     @DisplayName("Загрузка и чтение файла формата .xls")
     void downloadXlsFile() throws IOException {
+        Configuration.downloadsFolder="/download";
         open("https://clubtk.ru/kak-oformlyaetsya-schet-faktura-s-1-oktyabrya-2017-goda");
         File download = $("a[href*='/fls/6203/forma-s-f-s-01-10-2017.xls']").download();
         XLS xls = new XLS(download);
@@ -108,6 +113,7 @@ public class DownloadFileTest {
     @Test
     @DisplayName("Чтение файла формата .csv")
     void downloadCsvFile() throws IOException, CsvException {
+        Configuration.downloadsFolder="/download";
         try (InputStream is = cl.getResourceAsStream("shoes.csv")) {
             assert is != null;
             try (InputStreamReader isr = new InputStreamReader(is)) {
@@ -121,6 +127,7 @@ public class DownloadFileTest {
 
     @Test
     void zipTestCsv() throws Exception {
+        Configuration.downloadsFolder="/download";
         try (InputStream is = cl.getResourceAsStream("TestData.zip")) {
             assert is != null;
             try (ZipInputStream zis = new ZipInputStream(is)) {
@@ -139,6 +146,7 @@ public class DownloadFileTest {
 
     @Test
     void zipTestPdf() throws Exception {
+        Configuration.downloadsFolder="/download";
         try (InputStream is = cl.getResourceAsStream("pdf.zip")) {
             assert is != null;
             try (ZipInputStream zis = new ZipInputStream(is)) {
@@ -174,6 +182,7 @@ public class DownloadFileTest {
     @Test
     @DisplayName("Чтение файла формата .json")
     void downloadJsonFile() throws IOException {
+        Configuration.downloadsFolder="/download";
         ObjectMapper objectMapper = new ObjectMapper();
         try (InputStream is = cl.getResourceAsStream("Build.json")) {
             assert is != null;
