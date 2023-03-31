@@ -48,8 +48,6 @@ public class DownloadFileTest {
     @DisplayName("Загрузка и чтение файла формата .docx")
 //    зависимость  implementation 'org.apache.poi:poi-ooxml:5.2.3'
     void downloadDocxFile() throws IOException {
-        Configuration.fileDownload = FileDownloadMode.FOLDER;
-        Configuration.proxyEnabled = false;
         SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://www.sravni.ru/text/zayavlenie-na-otpusk/");
         File downloads = $("p a[href*='b7m2l1pyqtshfg89kew3.docx'").download(DownloadOptions.using(FOLDER));
@@ -117,11 +115,14 @@ public class DownloadFileTest {
             try (InputStreamReader isr = new InputStreamReader(is)) {
                 CSVReader csvReader = new CSVReader(isr);
                 List<String[]> readAll = csvReader.readAll();
-                readAll.forEach(strings -> System.out.println(Arrays.toString(strings)));
+                Assertions.assertEquals("﻿Ботинки HS РАН-Р 400 чер. ЗП;38;1",
+                        Arrays.stream(readAll.stream().findFirst().get()).findFirst().get());
+
+                }
+
             }
         }
 
-    }
 
     @Test
     void zipTestCsv() throws Exception {
@@ -133,7 +134,8 @@ public class DownloadFileTest {
                     if (entry.getName().contains(".csv")) {
                         CSVReader csvReader = new CSVReader(new InputStreamReader(zis));
                         List<String[]> csvContent = csvReader.readAll();
-                        csvContent.forEach(strings -> System.out.println(Arrays.toString(strings)));
+                        Assertions.assertEquals("number",
+                                Arrays.stream(csvContent.stream().findFirst().get()).findFirst().get());
                     }
                 }
 

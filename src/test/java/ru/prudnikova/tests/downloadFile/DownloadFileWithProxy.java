@@ -27,8 +27,6 @@ public class DownloadFileWithProxy {
     @Test
     @DisplayName("Хотела загрузка файл через прокси, потому что локатор кнопки Скачать не содержит href, но потом использовала метод FOLDER")
     void downloadFile() throws Exception {
-        Configuration.fileDownload = FileDownloadMode.FOLDER;
-        Configuration.proxyEnabled = false;
         open("https://master-rezume.com/blank-rezyume-na-rabotu");
         File download = $("#card-btn-bl").download(DownloadOptions.using(FileDownloadMode.FOLDER));
         System.out.println(download);
